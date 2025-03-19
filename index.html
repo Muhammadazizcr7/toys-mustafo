@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="IMAGES/R.png">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Toys Marcet</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .navbar {   
+            background-color: #6caeff;
+            padding: 10px;
+        }
+
+        .navbar-brand {
+            color: #442f8f;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 50%; 
+        }
+
+         
+        
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-price {
+            color: #ff0000;
+            font-size: 18px;
+        }
+
+        .footer {
+            background-color: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .navbar {   
+            background-color: #6caeff;
+            padding: 10px;
+        }
+
+        .navbar-brand {
+            color: #442f8f;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 50%; 
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            background-color: white;
+            margin-bottom: 15px;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-price {
+            color: #ff0000;
+            font-size: 18px;
+        }
+
+        .footer {
+            background-color: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">MSK</a>
+        <input type="text" id="searchInput" class="form-control search-box mx-3" placeholder="Search products..." onkeyup="searchProducts()">
+        <button class="btn btn-warning" onclick="searchProducts()">🔍 Search</button>
+    </div>
+</nav>
+
+<!-- Products -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/91oxSXgVD6L.jpg" alt="Teddy Bear">
+                <h5>Teddy Bear</h5>
+                <p class="product-price">$11.99</p>
+                <form action="teddy_bear.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/OIP.jpeg" alt="Remote Control Car">
+                <h5>Remote Control Car</h5>
+                <p class="product-price">$32.99</p>
+                <form action="aform3.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/R.jpeg" alt="Rubik's Cube">
+                <h5>Rubik's Cube</h5>
+                <p class="product-price">$3.25</p>
+                <form action="aform4.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for search -->
+<script>
+    function searchProducts() {
+        let input = document.getElementById("searchInput").value.toLowerCase(); // Получаем текст
+        let products = document.getElementsByClassName("product"); // Получаем все товары
+
+        for (let i = 0; i < products.length; i++) {
+            let productText = products[i].innerText.toLowerCase();
+            if (productText.includes(input)) {
+                products[i].style.display = "block"; // Показываем товар, если есть совпадение
+            } else {
+                products[i].style.display = "none"; // Скрываем товар, если нет совпадения
+            }
+        }
+    }
+</script>
+
+
+
+
+  
+
+
+
+    <script>
+        function searchProducts() {
+            let input = document.getElementById("searchInput").value.toLowerCase(); // Получаем текст
+            let products = document.getElementsByClassName("product"); // Получаем список товаров
+    
+            for (let i = 0; i < products.length; i++) {
+                let productText = products[i].innerText.toLowerCase();
+                if (productText.includes(input)) {
+                    products[i].style.display = "block"; // Показываем, если совпадает
+                } else {
+                    products[i].style.display = "none"; // Скрываем, если не совпадает
+                }
+            }
+        }
+    </script>
+ 
+
+
+    <!-- Products -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/Doll.jpeg" alt="Teddy Bear">
+                <h5>Doll</h5>
+                <p class="product-price">$8.67</p>
+                <form action="aform5.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/Ball.jpeg" alt="Remote Control Car">
+                <h5>Ball</h5>
+                <p class="product-price">$17.99</p>
+                <form action="aform6.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/Car.jpeg" alt="Rubik's Cube">
+                <h5>Super Car</h5>
+                <p class="product-price">$2.99</p>
+                <form action="aform7.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Products -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/OIP (1).jpeg" alt="Teddy Bear">
+                <h5>Teddy Bear</h5>
+                <p class="product-price">$23.45</p>
+                <form action="aform8.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/Toys Panda.jpeg" alt="Remote Control Car">
+                <h5>Toys Panda</h5>
+                <p class="product-price">$16.99</p>
+                <form action="aform9.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 product">
+            <div class="product-card">
+                <img src="IMAGES/Tank.jpeg" alt="Rubik's Cube">
+                <h5>Tank</h5>
+                <p class="product-price">$7.55</p>
+                <form action="aform10.html">
+                    <button class="btn btn-success">🛒 Buy Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

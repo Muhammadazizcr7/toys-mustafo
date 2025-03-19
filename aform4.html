@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="x-icon" href="IMAGES/checout2.jpg">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <style>
+    /* Reset styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #1c1c1c;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    /* Checkout container */
+    .checkout-container {
+      max-width: 600px;
+      background-color: #2e2e2e;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      border: 1px solid #444;
+    }
+    .checkout-container h1.title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff5555;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ff4444;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ff7777;
+    }
+    h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #ff8888;
+    }
+    /* Sections */
+    .payment-method,
+    .promo-section,
+    .location-section,
+    .phone-section,
+    .card-section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ccc;
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background-color: #1c1c1c;
+      color: #e0e0e0;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #ff4444;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .submit-btn:hover {
+      background-color: #cc3333;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <!-- Checkout Title -->
+    <h1 class="title">CHECKOUT</h1>
+    
+    <!-- Product Information -->
+    <h1>Rubic Cubic's</h1>
+    <h2>$3.25</h2>
+    <div id="product-info" class="product-card">
+      <!-- Additional product details (image, description, etc.) -->
+    </div>
+    
+    <!-- Payment Method -->
+    <div class="payment-method">
+      <h3>Select Payment Method:</h3>
+      <select id="payment">
+        <option value="uzcard">Uzcard</option>
+        <option value="humo">Humo</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">Mastercard</option>
+      </select>
+    </div>
+    
+    <!-- Card Input -->
+    <div class="card-section">
+      <h3>Card Number</h3>
+      <label for="Card">Card Number:</label>
+      <input type="text" id="Card" placeholder="**   **" required>
+    </div>
+    
+    <!-- Promo Code -->
+    <div class="promo-section">
+      <label for="promo-code">Enter Promo Code:</label>
+      <input type="text" id="promo-code">
+      <p id="promo-message"></p>
+    </div>
+    
+    <!-- Address -->
+    <div class="location-section">
+      <label for="location">Enter Address:</label>
+      <input type="text" id="location" placeholder="City, district, street">
+    </div>
+    
+    <!-- Phone Number -->
+    <div class="phone-section">
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" placeholder="+998 () _--" required>
+    </div>
+        <!-- Submit Button -->
+        <!-- Форма регистрации -->
+        <div id="signUpSection" class="hidden">
+          <button onclick="placeOrder()" class="red-button" onclick="openIndex()" style="background-color: red; color: white; padding: 10px 230px; border: none; border-radius: 5px; cursor: pointer; min-width: 150px;">
+                Place Order
+          </button>
+        </div>
+  </div>
+
+  <script>
+    function openIndex() {
+        window.location.href = "index.html"; // Переход на главную страницу
+    }
+</script>
+
+
+<script>
+  function placeOrder() {
+      alert("Спасибо за покупку!"); // Сообщение пользователю
+      setTimeout(function() {
+          window.location.href = "index.html"; // Переход через 2 секунды
+      }, 2000);
+  }
+</script>
+    
+</body>
+</html>

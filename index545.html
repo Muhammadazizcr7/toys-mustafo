@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="shortcut icon" type="x-icon" href="IMAGES/Без названия.jpeg">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta charset="UTF-8">
+  <title>Profil Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .hidden {
+      display: none;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      display: block;
+      margin: 10px auto;
+    }
+    h2, p {
+      text-align: center;
+    }
+    a {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+
+<style>
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+  
+  .container {
+      width: 350px;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: 0.3s;
+  }
+  
+  .container:hover {
+      transform: translateY(-5px);
+  }
+  
+  h2 {
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 600;
+  }
+  
+  input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+  }
+  
+  input:focus {
+      border-color: #6e8efb;
+      outline: none;
+      box-shadow: 0 0 5px rgba(110, 142, 251, 0.5);
+  }
+  
+  button {
+      width: 100%;
+      background: linear-gradient(90deg, #6e8efb, #a777e3);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: 0.3s;
+  }
+  
+  button:hover {
+      background: linear-gradient(90deg, #a777e3, #6e8efb);
+  }
+  
+  .logout {
+      background: #ff5e5e;
+  }
+  
+  .logout:hover {
+      background: #d43f3f;
+  }
+  
+  p {
+      font-size: 14px;
+      margin-top: 10px;
+  }
+  
+  span {
+      color: #6e8efb;
+      cursor: pointer;
+      font-weight: 600;
+  }
+  
+  span:hover {
+      text-decoration: underline;
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 10px auto;
+      display: block;
+      border: 3px solid #6e8efb;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Секция аутентификации -->
+    <div id="authSection">
+      <!-- Форма входа -->
+      <div id="signInSection">
+        <h2> Entrance</h2>
+        <input type="text" id="signinUsername" placeholder="Crawler's Name">
+        <input type="password" id="signinPassword" placeholder="password">
+        <form action="Register777.html">
+        <button onclick="signIn()">Enter</button>
+      </div>
+
+      <!-- Форма регистрации -->
+      <div id="signUpSection" class="hidden">
+        <h2>Регистрация</h2>
+        <input type="text" id="signupUsername" placeholder="Имя пользователя">
+        <input type="password" id="signupPassword" placeholder="Пароль">
+        <input type="password" id="signupConfirmPassword" placeholder="Подтвердите пароль">
+        <p>Уже есть аккаунт? <a onclick="showSignIn()">Enter</a></p>
+      </div>
+    </div>
+
+    <!-- Секция профиля -->
+    <div id="profileSection" class="hidden">
+      <h2>Профиль пользователя</h2>
+      <!-- Фото профиля -->
+      <img id="profilePic" src="default-profile.png" alt="Фото профиля" class="profile-picture">
+      <div>
+        <label for="profileImageInput">Выберите свою фотографию:</label>
+        <input type="file" id="profileImageInput" accept="image/*" onchange="previewImage(event)">
+      </div>
+      <!-- Имя пользователя -->
+      <div>
+        <label for="displayName">Ваше имя:</label>
+        <input type="text" id="displayName" placeholder="Введите ваше имя">
+      </div>
+      <button onclick="updateProfile()">Обновить профиль</button>
+      <!-- Кнопка выхода -->
+      <button onclick="signOut()">Выйти</button>
+    </div>
+  </div>
+
+  <script>
+    // Переменная для хранения зарегистрированного аккаунта (без реального бэкенда)
+    let registeredAccount = null;
+
+    // Функция регистрации с автоматическим переходом в профиль
+    function signUp() {
+      const username = document.getElementById('signupUsername').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+   
+      }
+      if (password !== confirmPassword) {
+        alert("Пароли не совпадают.");
+        return;
+      }
+      registeredAccount = { username, password };
+      alert("Регистрация успешна!");
+
+      // Переход в профиль
+      document.getElementById('authSection').classList.add('hidden');
+      document.getElementById('profileSection').classList.remove('hidden');
+      document.getElementById('displayName').value = username;
+
+    // Функция входа с разделением ошибок для неверного имени пользователя и неверного пароля
+    function signIn() {
+      const username = document.getElementById('signinUsername').value.trim();
+      const password = document.getElementById('signinPassword').value;
+
+      if (registeredAccount === null) {
+        alert("Аккаунт не найден. Пожалуйста, зарегистрируйтесь.");
+        return;
+      }
+      if (username !== registeredAccount.username) {
+        alert("Неверное имя пользователя.");
+        return;
+      }
+      if (password !== registeredAccount.password) {
+        alert("Неверный пароль.");
+        return;
+      }
+      // Если данные верны, переходим в профиль
+      document.getElementById('authSection').classList.add('hidden');
+      document.getElementById('profileSection').classList.remove('hidden');
+      document.getElementById('displayName').value = username;
+    }
+
+    // Переключение на форму регистрации
+    function showSignUp() {
+      document.getElementById('signInSection').classList.add('hidden');
+      document.getElementById('signUpSection').classList.remove('hidden');
+    }
+
+    // Переключение на форму входа
+    function showSignIn() {
+      document.getElementById('signUpSection').classList.add('hidden');
+      document.getElementById('signInSection').classList.remove('hidden');
+    }
+
+    // Предварительный просмотр изображения профиля
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profilePic').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Функция обновления профиля (выводит сообщение об обновлении)
+    function updateProfile() {
+      const name = document.getElementById('displayName').value.trim();
+      if (name) {
+        alert("Профиль обновлён! Ваше имя: " + name);
+      } else {
+        alert("Пожалуйста, введите ваше имя.");
+      }
+    }
+
+    // Функция выхода из аккаунта
+    function signOut() {  
+      document.getElementById('profileSection').classList.add('hidden');
+      document.getElementById('authSection').classList.remove('hidden');
+      // Очищаем поля входа (регистрацию оставляем для демонстрации)
+      document.getElementById('signinUsername').value = "";
+      document.getElementById('signinPassword').value = "";
+      alert("Вы вышли из аккаунта.");
+    }
+  </script>
+</body>
+</html>
